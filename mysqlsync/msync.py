@@ -19,4 +19,4 @@ dbconfig={
     }
 }     
        
-new mysqlsync(dbconfig)
+mysqlsync.init(dbconfig)

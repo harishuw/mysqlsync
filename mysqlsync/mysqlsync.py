@@ -1,5 +1,5 @@
 import sys
-class mysqlsync:
+class mysqlSync:
     mdb=""   
     cur=""
     tables={}   
@@ -12,7 +12,7 @@ class mysqlsync:
     trows=0
     isconnected=True
     autodel=False
-	ver="1.0.0"
+    v="1.0.0"
     def __init__(self,dbc):        
         if self.cfg(dbc):
             self.connect()
@@ -338,7 +338,7 @@ class mysqlsync:
                     for cl in dc:
                         print("\t\t"+cl) 
     def version(self):
-		print(self.ver)
+        print(self.v)
     def __del__(self):
         if len(self.errors)>0:
             for e in self.errors:
@@ -346,3 +346,5 @@ class mysqlsync:
         if self.cur!="":
             self.cur.close()    
             """ALTER TABLE `child` ADD CONSTRAINT `name` FOREIGN KEY (`index`) REFERENCES `parent`(`paer id`) ON DELETE RESTRICT ON UPDATE RESTRICT;"""
+def init(dbconfig):
+    return mysqlSync(dbconfig)
